@@ -6,7 +6,7 @@ You can run this project on your virtual environment.\
 First, clone this project to your environment directory.\
 This project use mysql database. You can use xampp for this case and import the database from db folder of this repository\
 And now you can run this project using cmd from your virtual environment.\
-Make sure you are in projects directory. 
+Make sure you are in projects directory.\ 
 `your-path\manage.py runserver`
 # Screenshoot
 Home screen\
