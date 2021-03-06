@@ -8,6 +8,8 @@ This project use mysql database. You can use xampp for this case and import the 
 And now you can run this project using cmd from your virtual environment.\
 Make sure you are in projects directory.\ 
 `your-path\manage.py runserver`
+Some modules are not available in python, so i made my own. So you need add an Environment variables on windows.
+
 # Screenshoot
 Home screen\
 ![image](https://user-images.githubusercontent.com/60491935/110189595-2221f180-7e52-11eb-8e34-e77ce160816c.png)\
