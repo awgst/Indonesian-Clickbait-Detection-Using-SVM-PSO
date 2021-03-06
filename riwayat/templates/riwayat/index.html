@@ -1,0 +1,98 @@
+{% extends "admin-base.html" %}
+{% block content %}
+<div class="container-fluid" style="margin-bottom: 20px;">
+    <form action="/adm-result/" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-9">
+                <input type="text" class="form-control" placeholder="Cek Judul Berita.." name="judul">
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary" value="submit">CEK!</button>
+            </div>
+    
+        </div>
+    </form>
+</div>
+
+<div class="card">
+    <div class="card-header">
+      <h4>{{title}}</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="dtBasicExample" class="table table-hover table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal</th>
+                        <th>Konten</th>
+                        <th>Klasifikasi</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                    <tr>
+                        <td>{{item.id_cek}}</td>
+                        <td>{{item.tanggal}}</td>
+                        <td>{{item.konten}}</td>
+                        <td>{{item.klasifikasi}}</td>
+                        <td style="text-align: center;">
+                            <a href="#"  data-toggle="modal" data-target=#x{{item.id_cek}} style="margin-right: 5px;"><i class='fas fa-info-circle' style='font-size:18px'></i></a>
+                            <a href="/hapusdata/?id_cek={{item.id_cek}}" style="padding-left: 5px;"><i class='fas fa-trash-alt' style='font-size:18px'></i></a>
+                        </td>
+                        <div class="modal fade" id=x{{item.id_cek}} role="dialog">
+                            <div class="vertical-alignment-helper">
+                                <div class="modal-dialog vertical-align-center">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <div class="container text-center">
+                                                <div class="row">
+                                                    <div class="col"></div>
+                                                    <div class="col-6"><h4 class="modal-title">Detail Prediksi</h4></div>
+                                                    <div class="col"><button type="button" class="close" data-dismiss="modal">&times;</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="col-12" style="text-align: left;">
+                                                    Teks Input :
+                                                </div>
+                                                <div class="col-12" style="text-align: left;">
+                                                    {{item.konten}}
+                        
+                                                </div>
+                                                <div class="col-12" style="text-align: left;">
+                                                    Preprocessing :
+                                                </div>
+                                                <div class="col-12" style="text-align: left;">
+                                                    {{item.preprocessing}}
+                                                    
+                                                </div>
+                                                <div class="col-12" style="text-align: left;">
+                                                    TFIDF :
+                                                </div>
+                                                <div class="col-12" style="text-align: left;">
+                                                    {{item.tfidf}}
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="container">
+                                                    <div class="col-12" style="text-align: center;"><button type="button" class="btn btn-sucess" data-dismiss="modal" style="background-color: black; color: white;">Close</button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </tr>
+                    {% endfor %}
+            </table>  
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

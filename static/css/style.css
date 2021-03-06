@@ -1,0 +1,119 @@
+.jumbotron{
+    /*background-image: url("/static/assets/img/Background.png");*/
+    background-color: transparent;
+    background-position: center;
+    background-size: cover;
+    height: 700px;
+}
+.fadeMe {
+    opacity:    0.9; 
+    background: #000; 
+    width:      100%;
+    height:     100%; 
+    z-index:    10;
+    top:        0; 
+    left:       0; 
+    position:   fixed;
+    background-image: url("/static/assets/img/loading-icon.gif");
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    background-position: center;
+    
+}
+.custom-body{
+    background-color: #ff6a06;
+}
+.center {
+    padding-top: 200px;
+}
+.custom-form{
+    width: 100%;
+    margin-top: 40px;
+}
+
+.selected{
+    background-color:#ff6a06;
+    height: 120%;
+}
+
+.profile{
+    margin-right: 100px;
+}
+
+.profile-sidebar{
+    height: 100vh;
+}
+
+.profile-title{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.profile-title-name{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.profile-image{
+    margin-left: auto;
+    margin-right: 120px;
+    width: 20%;
+    height: 17%;
+}
+
+.profile-menu{
+    margin-top: 15px;
+}
+
+.profile-menu ul li{
+    margin-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 90px;
+}
+
+.profile-menu ul li a{
+    color: white;
+    font-size: 17px;
+    font-weight: 400;
+}
+.profile-content{
+    padding-top: 145px;
+    padding-left: 30px;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+  
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+  
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

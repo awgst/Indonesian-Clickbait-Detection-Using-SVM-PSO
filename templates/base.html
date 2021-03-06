@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UNCLICKBAITED</title>
+        {%include "snippets/styles.html" %}
+        {% block app_styles %}
+        <link rel="stylesheet" href="{% static "css/style.css" %}">
+        {% endblock app_styles %}
+    </head>
+    <body class="custom-body">
+      <div id="mybody">
+      </div>
+        <!-- Navbar Section-->
+        <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand font-weight-bold" href="#">UNCLICKBAITED</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                {% block selected-1 %}
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                {% endblock selected-1 %}
+                {% block selected-2 %}
+                <li class="nav-item">
+                  <a class="nav-link" href="/disclaimer">Disclaimer</a>
+                </li>
+                {% endblock selected-2 %}
+                {% block selected-3 %}
+                <li class="nav-item">
+                  <a class="nav-link" href="/about">About</a>
+                </li>
+                {% endblock selected-3 %}
+                        
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+        <!-- End of Navbar Section-->
+        <!--Content Body Section-->
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container text-center text-dark">
+              {% block header %}
+              {% endblock header%}
+            </div>
+        </div>
+        <!--End of Content Body Section-->
+        <!-- Modal Content-->
+        {% include "snippets/modal.html" %}
+        <!-- End of Modal Content-->
+        <footer>
+          <div class="navbar navbar-inverse navbar-fixed-botom" style="background-color: #343a40;">
+            <div class="container-fluid">
+              <div class="col-12" style="text-align: center;">
+                <p style="color: white; ">&#169; Unclickbaited, 2020</p>
+              </div>
+                
+            </div>
+          </div>
+        </footer>
+        
+        {% include "snippets/scripts.html" %}
+        {% block custom-scripts %}
+        {% endblock custom-scripts %}
+      </body>
+      <script>
+        function myFunction() {
+           var element = document.getElementById("mybody");
+           element.classList.add("fadeMe");
+        }
+      </script>
+</html>

@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{title}}</title>
+    {%include "snippets/styles.html" %}
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+    <div class="container center">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header" style="text-align: center; font-weight: bold;">
+                        {{heading}}
+                    </div>
+                    <div class="card-body">
+                        <div class="container-fluid">
+                            <form action="{% url 'login' %}" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Username" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="password" class="form-control" placeholder="Password" name="password">
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" id="form-checkbox"> Show Password
+                                </div>
+                                
+                                <div class="col-md-12" style="text-align: center;">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary" value="submit">Login</button>
+                                    </div>
+                                </div>
+                                {% if messages %}
+                                <div class="col-md-12" style="text-align: center;">
+                                    <div class="form-group">
+                                        {% for message in messages %}
+                                            <p class="messages">{{message}} </p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+                
+    </div>
+    {% include "snippets/scripts.html" %}
+    <script type="text/javascript">
+        $(document).ready(function(){		
+            $('#form-checkbox').click(function(){
+                if($(this).is(':checked')){
+                    $('#password').attr('type','text');
+                }else{
+                    $('#password').attr('type','password');
+                }
+            });
+            
+        });
+    </script>
+</body>
+</html>

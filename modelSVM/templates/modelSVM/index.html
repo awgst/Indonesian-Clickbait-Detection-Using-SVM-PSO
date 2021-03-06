@@ -1,0 +1,96 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+<!--Chart untuk SVM-PSO-->
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['bar']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'Pengujian');
+    data.addColumn('number', 'Presisi');
+    data.addColumn('number', 'Recall');
+    data.addColumn('number', 'Akurasi');
+
+    data.addRows({{data|safe}});
+
+    var options = {
+      width: 900,
+      height: 400
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+    chart.draw(data, google.charts.Bar.convertOptions(options));
+  }
+</script>
+<!--Chart untuk SVM-->
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['bar']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'Pengujian');
+    data.addColumn('number', 'Presisi');
+    data.addColumn('number', 'Recall');
+    data.addColumn('number', 'Akurasi');
+
+    data.addRows({{data2|safe}});
+
+    var options = {
+      width: 900,
+      height: 400
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('columnchart_material2'));
+
+    chart.draw(data, google.charts.Bar.convertOptions(options));
+  }
+</script>
+<div class="row">
+  <div class="card">
+    <div class="card-header">
+      <h4>{{title}} SVM-PSO</h4>
+    </div>
+    <div class="card-body" style="height: 420px">
+      <div id="columnchart_material"></div>
+      
+    </div>
+    </div>
+</div>
+<div class="row" style="margin-left: 19px; margin-top: 25px;">
+  <div>
+    <h5>Rata-rata</h5>
+    <p>Presisi : {{pres2}}</p>
+    <p>Recall : {{recall2}}</p>
+    <p>Akurasi : {{acc2}}</p>
+  </div>
+</div>
+<div class="row" style="margin-left: 19px; margin-top: 25px;">
+  <div class="card">
+    <div class="card-header">
+      <h4>{{title}} SVM</h4>
+    </div>
+    <div class="card-body" style="height: 420px">
+      <div id="columnchart_material2"></div>
+    </div>
+    </div>
+</div>
+<div class="row" style="margin-left: 19px; margin-top: 25px;">
+  <div>
+    <h5>Rata-rata</h5>
+    <p>Presisi : {{pres1}}</p>
+    <p>Recall : {{recall1}}</p>
+    <p>Akurasi : {{acc1}}</p>
+  </div>
+</div>
+
+
+
+
+
+</script>
+{% endblock content %}

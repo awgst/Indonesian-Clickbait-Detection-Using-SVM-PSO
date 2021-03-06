@@ -1,0 +1,16 @@
+<!--Index of Home Pages-->
+{% extends "base.html" %}
+{% block header %}
+    <h1 class="display-4 center font-weight-bold">{{heading}}</h1>
+    <form method="POST" id="input_form" action="/result/">
+        {% csrf_token %}
+        <input class="form-control form-control-lg align-center custom-form" name="judul" id="juduli" type="text" placeholder="Masukkan Judul Berita yang akan diperiksa..." required="required">
+        <button type="submit" onclick="myFunction()" class="btn btn-dark btn-lg" style="margin-top: 40px;">CEK!!!</button>    
+    </form>
+{% endblock header %}
+{% block selected-1 %}
+    <li class="nav-item">
+        <a class="nav-link selected" href="/" style="color: black;">Home<span class="sr-only">(current)</span></a>
+    </li>
+{% endblock selected-1 %}
+

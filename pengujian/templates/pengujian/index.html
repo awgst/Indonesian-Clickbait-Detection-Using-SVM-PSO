@@ -1,0 +1,77 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+      <h4>{{title}} SVM-PSO</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="dtBasicExample" class="table table-hover table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal</th>
+                        <th>Total Dataset</th>
+                        <th>Total Data Training</th>
+                        <th>Total Data Testing</th>
+                        <th>Presisi</th>
+                        <th>Recall</th>
+                        <th>Akurasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                    <tr>
+                        <td>{{item.id_pengujian}}</td>
+                        <td>{{item.tanggal}}</td>
+                        <td>{{item.total_dataset}}</td>
+                        <td>{{item.data_train}}</td>
+                        <td>{{item.data_test}}</td>
+                        <td>{{item.presisi}}</td>
+                        <td>{{item.recall}}</td>
+                        <td>{{item.akurasi}}</td>
+                    </tr>
+                    {% endfor %}
+            </table>  
+        </div>
+    </div>
+</div>
+<br>
+<div class="card">
+    <div class="card-header">
+      <h4>{{title}} SVM</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="dtBasicExample" class="table table-hover table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tanggal</th>
+                        <th>Total Dataset</th>
+                        <th>Total Data Training</th>
+                        <th>Total Data Testing</th>
+                        <th>Presisi</th>
+                        <th>Recall</th>
+                        <th>Akurasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data1 %}
+                    <tr>
+                        <td>{{item.id_pengujian}}</td>
+                        <td>{{item.tanggal}}</td>
+                        <td>{{item.total_dataset}}</td>
+                        <td>{{item.data_train}}</td>
+                        <td>{{item.data_test}}</td>
+                        <td>{{item.presisi}}</td>
+                        <td>{{item.recall}}</td>
+                        <td>{{item.akurasi}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

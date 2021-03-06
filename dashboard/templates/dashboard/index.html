@@ -1,0 +1,37 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+      <h4>{{title}}</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>{{riwayat}}</h1>
+                        <h4 style="text-align: right;">Riwayat</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>{{dataset}}</h1>
+                        <h4 style="text-align: right;">Dataset</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>{{datauji}}</h1>
+                        <h4 style="text-align: right;">Data Hasil Uji</h4>
+                    </div>
+                </div>
+            </div>
+            
+        </div><br>
+    </div>
+</div>
+{% endblock content %}

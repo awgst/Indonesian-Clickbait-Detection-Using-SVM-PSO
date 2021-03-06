@@ -1,0 +1,29 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+      <h4>{{title}}</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="dtBasicExample" class="table table-hover table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Konten</th>
+                        <th>Label</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                    <tr>
+                        <td>{{item.id_dataset}}</td>
+                        <td>{{item.konten}}</td>
+                        <td>{{item.label}}</td>
+                    </tr>
+                    {% endfor %}
+            </table>  
+        </div>
+    </div>
+</div>
+{% endblock content %}

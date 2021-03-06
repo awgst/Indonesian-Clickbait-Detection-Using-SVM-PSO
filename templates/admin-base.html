@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/chartist.min.css" %}">
+    <script type="text/javascript" src="{% static "js/loader.js" %}"></script>
+    {% block customscript %}
+
+    {% endblock customscript %}
+    {%include "snippets/styles.html" %}
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">UNCLICKBAITED</a>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <div class="row profile">
+            <div class="col-md-2 profile-sidebar" style="background-color:transparent;">
+                <div class="profile-image">
+                    <img src="{% static "assets/img/admin.png" %}" alt="profile-image">
+                </div>
+                <div class="profile-title">
+                    <div class="profile-title-name">
+                        {{user}}
+                    </div>
+                </div>
+                <div class="profile-menu">
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="/dashboard">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="/riwayat">Riwayat</a>
+                        </li>
+                        <li>
+                            <a href="/dataset">Dataset</a>
+                        </li>
+                        <li>
+                            <a href="/pengujian"> Data Hasil Uji</a>
+                        </li>
+                        <li>
+                            <a href="/modelSVM">Model</a>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10" style="background-color: white;">
+                <div class="profile-content">
+                    {% block content %}
+
+                    {% endblock content %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Logout modal -->
+    <div class="modal center" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5>Anda yakin ingin keluar?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+            <p>Pilih "Logout" jika ingin keluar.</p><br>
+            <div class="actionsBtns">
+                <form action="/logout/" method="POST">
+                    {% csrf_token %}
+                    <div class="col-12" style="text-align: right;">
+                    <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <input type="submit" class="btn btn-default btn-primary" value="Logout">
+                    </div>
+                    
+                </form>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    {% include "snippets/scripts.html" %}
+</body>
+</html>
